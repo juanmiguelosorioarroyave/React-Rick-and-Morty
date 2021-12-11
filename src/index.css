@@ -16,3 +16,11 @@ img.fondo {
     width: 100%;
     display: flex;
 }
+
+input{
+    position: relative;
+    height: 29px;
+    left: 40%;
+    width: 24%;
+    top: 10px;
+}

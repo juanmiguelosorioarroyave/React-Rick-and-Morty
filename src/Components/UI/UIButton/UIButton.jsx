@@ -1,20 +1,16 @@
 
 import React from 'react'
 
-export const Filtrar = ({ filter, setFilter }) => {
+export const Buscar = ({ PersonBuscar, setPersonBuscar }) => {
 	const handleInput = ({ target }) => {
-		setFilter(target.value)
+		setPersonBuscar(target.value)
 	}
 
 	return (
 		<section className='filtrar'>
 			<input
-				type='text'
-				placeholder='Nombre del personaje'
-				name='buscar'
-				onChange={handleInput}
-				value={filter}
-			/>
+				type='text' placeholder='Nombre del personaje'name='buscarqueda'
+				onChange={handleInput} value={PersonBuscar}/>
 		</section>
 	)
 }

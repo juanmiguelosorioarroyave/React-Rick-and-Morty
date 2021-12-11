@@ -1,13 +1,13 @@
 
 import { useState, useEffect } from 'react'
 import Logo from '../../../Images/fondo.jpg'
-import { Filtrar } from '../../UI/UIButton/UIButton'
+import { Buscar } from '../../UI/UIButton/UIButton'
 import { Card } from '../../UI/Card/Card' 
 
 function App() {
 	const [personajes, setPersonajes] = useState([])
 	const [loading, setLoading] = useState(true)
-	const [filter, setFilter] = useState('')
+	const [personBuscar, setPersonBuscar] = useState('')
 
 	useEffect(() => {
 		const getPersonajes = async () => {
@@ -26,7 +26,7 @@ function App() {
 	}, [])
 
 	const personjesFiltrados = personajes.filter((personaje) =>
-		personaje.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+	personaje.name.toLocaleLowerCase().includes(personBuscar.toLocaleLowerCase())
 	)
 
 	return (
@@ -34,7 +34,7 @@ function App() {
 			<figure className='logo'>
 				<img className='fondo' src={Logo} alt='Logo de RickMorty' />
 			</figure>
-			<Filtrar filter={filter} setFilter={setFilter} />
+			<Buscar PersonBuscar={personBuscar} setPersonBuscar={setPersonBuscar} />
 			<section className='lista-personajes'>
 				{loading ? (
 					<p>Cargando...</p>
@@ -45,7 +45,7 @@ function App() {
 				) : (
 					<p>
 						No se encontro personajes con la busqueda{' '}
-						<strong>"{filter}"</strong>.
+						<strong>"{personBuscar}"</strong>.
 					</p>
 				)}
 			</section>
